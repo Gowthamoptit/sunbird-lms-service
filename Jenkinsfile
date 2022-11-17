@@ -30,8 +30,8 @@ node('build-slave') {
                 }
 
                 //stage('Unit Tests') {
-                    sh "mvn clean install '-Dtest=!%regex[io.opensaber.registry.client.*]' -DfailIfNoTests=false"
-                }
+                    //sh "mvn clean install '-Dtest=!%regex[io.opensaber.registry.client.*]' -DfailIfNoTests=false"
+                //}
                 stage('Package') {
                     dir('controller') {
                         sh 'mvn play2:dist'
@@ -45,8 +45,7 @@ node('build-slave') {
                 }
             }
         }
-    } 
-    catch (err) {
+    } catch (err) {
         currentBuild.result = "FAILURE"
         throw err
     }
