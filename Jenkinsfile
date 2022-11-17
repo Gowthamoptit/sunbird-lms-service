@@ -45,7 +45,8 @@ node('build-slave') {
                 }
             }
         }
-    } catch (err) {
+    } 
+    catch (err) {
         currentBuild.result = "FAILURE"
         throw err
     }
